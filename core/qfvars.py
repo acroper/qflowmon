@@ -16,19 +16,20 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+"""
+QFLOWMON/QFVars
+
+Define the global variables of QFLOWMON in easily accesible objects
 
 """
-QFLOWMON
-Describe the functionality of the software
-"""
 
 
-from core import qflowmon
-
-def main():
-    qflowmon.QFlowmon()
+class QFVars:
     
-    
-
-if __name__ == "__main__":
-    main()
+    def __init__(self):
+        # Define a list for each type of variable
+        
+        self.GeomList = []
+        self.Misc = []
+        
+        

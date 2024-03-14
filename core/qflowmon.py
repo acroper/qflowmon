@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 QFLOWMON
 Copyright (C) 2024  Mosquera Lab - Montana State University
@@ -23,3 +22,40 @@ QFLOWMON/CORE
 Console project for the QFLOWMON, independent of the GUI.
 
 """
+
+from .qfvars import QFVars
+
+
+class QFlowmon:
+    
+    def __init__(self, Filename=""):
+        # Creation of the Qflowmon object
+        
+        # Attributes
+        # filename: external file to read
+        # ActiveFile: indicates if the file was properly read
+        # Variables: Generic variables generated in the different processes
+
+        
+        self.filename = Filename     
+        self.ActiveFile = False 
+        
+        self.Variables = QFVars()
+        
+        
+        # If a filename was provided, open it
+        if self.filename != "":
+            self.parseFile(self.filename)
+        
+    
+    def parseFile(self, Filename):
+        # Opens a QFlowmon file and reads its content.
+        None
+    
+    def saveFile(self):
+        # Saves a QFlowmon file to disk
+        None
+        
+        
+        
+        

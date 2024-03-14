@@ -16,19 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
-"""
-QFLOWMON
-Describe the functionality of the software
-"""
+from .qflowmon import QFlowmon
+from .qfprocess import QFProcess, ProcessStatus
+from .qfvars import QFVars
 
 
-from core import qflowmon
-
-def main():
-    qflowmon.QFlowmon()
-    
-    
-
-if __name__ == "__main__":
-    main()

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 """
 QFLOWMON
 Copyright (C) 2024  Mosquera Lab - Montana State University

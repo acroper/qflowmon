@@ -23,12 +23,16 @@ Describe the functionality of the software
 """
 
 
-from core import qflowmon
+from PyQt6 import QtWidgets
+from gui.mainwindow import *
+
 
 def main():
-    qflowmon.QFlowmon()
+    # Launching GUI
+    app = QtWidgets.QApplication(sys.argv)
+    window = MainWindow()
+    app.aboutToQuit.connect(app.deleteLater)
+    app.exec()
     
-    
-
 if __name__ == "__main__":
     main()

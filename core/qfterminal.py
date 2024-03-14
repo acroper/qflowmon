@@ -16,19 +16,20 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
 """
-QFLOWMON
-Describe the functionality of the software
+QF Terminal
+Provide Command line options to configure the workflow.
+Through this components, the console will emulate the iteratively of
+the GUI too.
 """
 
 
-from core import qflowmon
-
-def main():
-    qflowmon.QFlowmon()
+class QFTerminal:
+    def __init__(self, args):
+        # Parse the args. 
+        # If the args include an existing filename, open the qflowmon project
+        # and print on screen the steps.
+        # Show options to add a process, see status, add variables, etc.
+        
+        None
     
-    
-
-if __name__ == "__main__":
-    main()
