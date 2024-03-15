@@ -16,40 +16,23 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import sys
-import os
+"""
+QFLOWMON/QFOPERATION
+
+Defines the base operation class. 
+Lists the type of operations.
+Each operation/function inherents from this class
+
+"""
 
 
-from PyQt6 import QtWidgets, uic, QtCore
-from PyQt6.QtWidgets import *
-from PyQt6.QtCore import pyqtSignal, QObject
-
-from gui.processlistwidget import ProcessListWidget
-
-
-class MainWindow(QtWidgets.QMainWindow):
+class qfoperation_module:
     
     def __init__(self):
-        
-        super(MainWindow, self).__init__()
-
-        uic.loadUi('gui/MainWindow.ui', self)
-        
-        self.loadPanels()
-        
-        self.show()
-        
-        
-    def loadPanels(self):
-        # Left panel
         None
-        
-        # Central panel
-        
-        self.InternalPanel = ProcessListWidget()
-        self.CentralPanel.addWidget(self.InternalPanel)
-        
-        
-        # Right panel
-        
+    
+    def test(self):
+        print("Testing from Orca Output Module")
+
+
 

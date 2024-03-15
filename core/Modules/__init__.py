@@ -16,32 +16,5 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-"""
-QFLOWMON/QFProcess
 
-Define one process for QFLOWMON.
-Each process should have input variables, a defined operation, and an output.
 
-"""
-
-from enum import Enum
-
-class ProcessStatus(Enum):
-    IDLE = 1
-    RUNNING = 2
-    FINISHED = 3
-
-class QFProcess:
-    
-    def __init__(self):
-        # Define a process
-        
-        self.Input = None
-        self.Operation = None
-        self.Output = None
-        
-        self.ID = -1 # All process ID must be different
-        
-        self.Status = ProcessStatus.IDLE
-        
-        

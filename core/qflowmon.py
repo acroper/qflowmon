@@ -42,6 +42,10 @@ class QFlowmon:
         
         self.Variables = QFVars()
         
+        self.ProcessList = []  # List of processes
+        
+        self.SelectedProcess = None
+        
         
         # If a filename was provided, open it
         if self.filename != "":

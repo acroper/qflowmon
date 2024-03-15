@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+
 import sys
 import os
 
@@ -23,33 +24,36 @@ import os
 from PyQt6 import QtWidgets, uic, QtCore
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import pyqtSignal, QObject
+from PyQt6.QtGui import QAction
 
-from gui.processlistwidget import ProcessListWidget
+from core.qfoperation import *
+from gui.inputconfig import *
 
 
-class MainWindow(QtWidgets.QMainWindow):
+class ProcessWidget(QtWidgets.QWidget):
     
     def __init__(self):
         
-        super(MainWindow, self).__init__()
-
-        uic.loadUi('gui/MainWindow.ui', self)
+        super(ProcessWidget, self).__init__()
         
-        self.loadPanels()
+        uic.loadUi('gui/ProcessWidget.ui', self)
         
+        self.LoadModules()
+              
         self.show()
         
+    
+    def LoadModules(self):
         
-    def loadPanels(self):
-        # Left panel
-        None
+        print("Adding actions")
         
-        # Central panel
-        
-        self.InternalPanel = ProcessListWidget()
-        self.CentralPanel.addWidget(self.InternalPanel)
+        self.InputConf = InputConfig()
         
         
-        # Right panel
+        toct = QWidgetAction(self)
         
-
+        toct.setDefaultWidget(self.InputConf)
+        
+        
+        self.InputButton.addAction(toct)
+        

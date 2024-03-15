@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+
 import sys
 import os
 
@@ -23,33 +24,18 @@ import os
 from PyQt6 import QtWidgets, uic, QtCore
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import pyqtSignal, QObject
+from PyQt6.QtGui import QAction
 
-from gui.processlistwidget import ProcessListWidget
+from core.qfoperation import *
 
 
-class MainWindow(QtWidgets.QMainWindow):
+class InputConfig(QtWidgets.QWidget):
     
     def __init__(self):
         
-        super(MainWindow, self).__init__()
-
-        uic.loadUi('gui/MainWindow.ui', self)
+        super(InputConfig, self).__init__()
         
-        self.loadPanels()
+        uic.loadUi('gui/InputConfig.ui', self)
+              
+        # self.show()
         
-        self.show()
-        
-        
-    def loadPanels(self):
-        # Left panel
-        None
-        
-        # Central panel
-        
-        self.InternalPanel = ProcessListWidget()
-        self.CentralPanel.addWidget(self.InternalPanel)
-        
-        
-        # Right panel
-        
-
