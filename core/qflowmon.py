@@ -38,9 +38,10 @@ class QFlowmon:
 
         
         self.filename = Filename     
+        
         self.ActiveFile = False 
         
-        self.Variables = QFVars()
+        self.Variables = [] # List of variables
         
         self.ProcessList = []  # List of processes
         

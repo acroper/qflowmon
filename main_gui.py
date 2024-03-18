@@ -25,7 +25,9 @@ Describe the functionality of the software
 
 from PyQt6 import QtWidgets
 from gui.mainwindow import *
+from core.qflowmon import *
 
+MainProject = QFlowmon()
 
 def main():
     # Launching GUI

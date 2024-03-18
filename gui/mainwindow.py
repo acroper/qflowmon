@@ -35,11 +35,24 @@ class MainWindow(QtWidgets.QMainWindow):
 
         uic.loadUi('gui/MainWindow.ui', self)
         
+        self.setMenuActions()
+        
         self.loadPanels()
         
         self.show()
         
+    
+    def setMenuActions(self):
+        # Assign actions for the GUI menu
         
+        
+        
+        # close
+        self.actionQuit.triggered.connect(self.closing)
+        
+       
+    
+    
     def loadPanels(self):
         # Left panel
         None
@@ -51,5 +64,14 @@ class MainWindow(QtWidgets.QMainWindow):
         
         
         # Right panel
+        
+    def closeEvent(self, event):
+        print("Closing")
+        
+    def closing(self):
+        # First ask about to quit
+        print("Quitting...")
+        QApplication.instance().quit()
+        
         
 
