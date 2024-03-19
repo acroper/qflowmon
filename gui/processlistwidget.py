@@ -45,9 +45,7 @@ class ProcessListWidget(QtWidgets.QWidget):
         
         
         
-    def LoadProcessTypes(self):
-        
-        
+    def LoadProcessTypes(self): 
         
         ListOp = list(OperationType)
         
@@ -66,11 +64,29 @@ class ProcessListWidget(QtWidgets.QWidget):
         
         print(self.sender().ProcessType)
         
+        self.MainProject.addNewProcess(self.sender().ProcessType)
+        
         pw = ProcessWidget()
         
         self.ProcessList.addWidget(pw)
         
         self.ProcessList.addWidget(self.Spacing)
+        
+        
+        
+    
+    
+    def LoadProject(self):
+        ### Load the QFlowproject process list into the GUI
+        
+        ### First, clear workspace
+        print("Clearing widget list...")
+        for k in reversed (range(self.ProcessList.count())):
+            self.ProcessList.removeWidget (self.ProcessList.itemAt(k).widget())
+            
+        
+        ### Second, search for the processes and load
+        print (self.MainProject)
         
             
             

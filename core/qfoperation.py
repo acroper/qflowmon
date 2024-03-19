@@ -41,7 +41,7 @@ class OperationType(Enum):
         # Loads the object type according to the
         # operation type provided
         
-        ModuleName = "Modules."+optype.value[1]+".qfoperation_module"
+        ModuleName = "core.Modules."+optype.value[1]+".qfoperation_module"
         OperationMod = None
         Operation = None
         Pass = True
@@ -69,9 +69,12 @@ class QFOperation:
     
     def __init__(self):
         self.Type = None
+        
+        print("Operation running in the super class")
     
     def Load(self):
-        None
+        
+        print("Calling the Load function of the super class")
 
 
 # Test code

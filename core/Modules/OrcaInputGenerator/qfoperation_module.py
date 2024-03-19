@@ -24,12 +24,19 @@ Lists the type of operations.
 Each operation/function inherents from this class
 
 """
+from core.qfoperation import *
 
 
-class qfoperation_module:
+class qfoperation_module(QFOperation):
+    
+    
     
     def __init__(self):
-        None
+        print("Starting operation class in Orca Input Generator")
+        super().__init__()
+        
+        self.Load()
+        
     
     def test(self):
         print("Testing from Orca Input Module")

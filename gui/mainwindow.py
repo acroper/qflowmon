@@ -26,14 +26,17 @@ from PyQt6.QtCore import pyqtSignal, QObject
 
 from gui.processlistwidget import ProcessListWidget
 
+from gui.guidialogs import *
 
 class MainWindow(QtWidgets.QMainWindow):
     
-    def __init__(self):
+    def __init__(self, MainProject):
         
         super(MainWindow, self).__init__()
 
         uic.loadUi('gui/MainWindow.ui', self)
+        
+        self.MainProject = MainProject
         
         self.setMenuActions()
         
@@ -49,6 +52,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # close
         self.actionQuit.triggered.connect(self.closing)
+        self.actionOpen_Project.triggered.connect(self.showOpenProject)
         
        
     
@@ -62,11 +66,36 @@ class MainWindow(QtWidgets.QMainWindow):
         self.InternalPanel = ProcessListWidget()
         self.CentralPanel.addWidget(self.InternalPanel)
         
+        # Assign mainproject
+        self.InternalPanel.MainProject = self.MainProject
         
         # Right panel
         
+        
+    def showOpenProject(self):
+        
+        filename = openFileNameDialog(self, "", "Project files | *.txt (*.txt)")
+        
+        if filename != "":
+            self.openProject(filename)
+            
+        
+    
+        
+    
+    def openProject(self, filename):
+        ### Restart the GUI and loads the new project
+        
+        # Opens the project file
+        
+        self.MainProject.readFile(filename)
+        self.InternalPanel.LoadProject()
+    
+    
+    ### Check how to improve to ask to save the file
     def closeEvent(self, event):
         print("Closing")
+        QApplication.instance().quit()
         
     def closing(self):
         # First ask about to quit

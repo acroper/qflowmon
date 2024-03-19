@@ -27,12 +27,19 @@ from PyQt6 import QtWidgets
 from gui.mainwindow import *
 from core.qflowmon import *
 
-MainProject = QFlowmon()
+
 
 def main():
+    
+    # Global QFlowmon project
+    
+    MainProject= QFlowmon()
+    
     # Launching GUI
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow()
+    window = MainWindow(MainProject)
+    
+    
     app.aboutToQuit.connect(app.deleteLater)
     app.exec()
     

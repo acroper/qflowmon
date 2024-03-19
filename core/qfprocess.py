@@ -24,6 +24,8 @@ Each process should have input variables, a defined operation, and an output.
 
 """
 
+from .qfoperation import *
+
 from enum import Enum
 
 class ProcessStatus(Enum):
@@ -43,5 +45,11 @@ class QFProcess:
         self.ID = -1 # All process ID must be different
         
         self.Status = ProcessStatus.IDLE
+        
+        
+    def SetOperation(self, processType):
+        
+        self.Operation = OperationType.GetOperation(processType)
+        
         
         

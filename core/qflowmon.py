@@ -24,6 +24,7 @@ Console project for the QFLOWMON, independent of the GUI.
 """
 
 from .qfvars import QFVars
+from .qfprocess import *
 
 
 class QFlowmon:
@@ -50,12 +51,26 @@ class QFlowmon:
         
         # If a filename was provided, open it
         if self.filename != "":
-            self.parseFile(self.filename)
+            self.readFile(self.filename)
         
     
-    def parseFile(self, Filename):
+    def addNewProcess(self, processType):
+        
+        print("QFlowmon adding")
+        print(processType)
+        
+        qfproc = QFProcess()
+        qfproc.SetOperation(processType)
+        
+        self.ProcessList.append(qfproc)
+        
+        return qfproc
+    
+    
+    def readFile(self, Filename):
         # Opens a QFlowmon file and reads its content.
-        None
+        print("Opening project located at: " + Filename)
+        
     
     def saveFile(self):
         # Saves a QFlowmon file to disk

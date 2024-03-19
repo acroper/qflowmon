@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
 import sys
 import os
 
@@ -24,42 +23,26 @@ import os
 from PyQt6 import QtWidgets, uic, QtCore
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import pyqtSignal, QObject
-from PyQt6.QtGui import QAction
-
-from core.qfoperation import *
-from gui.inputconfig import *
 
 
-class ProcessWidget(QtWidgets.QWidget):
+
+def openFileNameDialog(parent, location="", Filter = "All files (*.*)"):
+    title = "Select a file"
     
-    def __init__(self):
-        
-        super(ProcessWidget, self).__init__()
-        
-        uic.loadUi('gui/ProcessWidget.ui', self)
-        
-        self.LoadModules()
-              
-        self.show()
-        
+    fileName = QFileDialog.getOpenFileName(parent, title, location, Filter)
     
-    def LoadModules(self):
-        
-        print("Adding actions")
-        
-        self.InputConf = InputConfig()
-        
-        
-        toct = QWidgetAction(self)
-        
-        toct.setDefaultWidget(self.InputConf)
-        
-        
-        self.InputButton.addAction(toct)
-        
+
+    if fileName:
+        return fileName[0]
+    else:
+        return ""
     
-    def SetProcess (self, qfproc):
-        self.InnProcess = qfproc
-        
-        
-        
+def openFolderNameDialog(self, location):
+    title = "Select a folder"
+    options = QFileDialog.Options()
+    options |= QFileDialog.DontUseNativeDialog
+    fileName = QFileDialog.getExistingDirectory(parent, title, location)
+    if fileName:
+        return fileName
+    else:
+        return "" 
